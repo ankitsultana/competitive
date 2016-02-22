@@ -58,8 +58,7 @@ void scan_string(char st[], int &size) {
     }
 }
  
-int main()
-{
+int main() {
     int t;
     scanf("%d", &t);
     char main_string[MAXN], pattern[MAXN];
