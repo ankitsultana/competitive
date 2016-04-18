@@ -1,5 +1,5 @@
 /* Author: Ankit Sultana
- * Problem id: 1267
+ * Problem Name: Points in Rectangle-II (1267)
  * * * * * * * * * */
 #ifdef __APPLE__
 	#include <iostream>

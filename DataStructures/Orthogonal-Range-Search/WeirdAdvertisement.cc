@@ -58,7 +58,7 @@ int tree_size = 0;
 void update(int &x, int l, int r, int ql, int qr, int type, int propagate) {
 	if(!x) {
 		x = ++tree_size;
-		tree[x] = {0, 0, 0, 0};  
+		tree[x] = {0, 0, 0, 0};
 	}
 	cout << l << ' ' << r << ' '<< tree_size << endl;
 	int mid = (r - l)/2 + l;

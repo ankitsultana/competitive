@@ -1,5 +1,5 @@
 /* Author: Ankit Sultana
- * Problem id: 1120
+ * Problem Name: Rectangle Union (1120)
  * * * * * * * * * */
 #ifdef __APPLE__
     #include <iostream>
