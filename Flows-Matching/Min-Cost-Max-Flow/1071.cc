@@ -1,5 +1,5 @@
 /* Author: Ankit Sultana
- * Problem id: 1071 
+ * Problem Name: Baker Vai (1071)
  * * * * * * * * * */
 #include <iostream>
 #include <algorithm>
@@ -17,7 +17,7 @@ int main() {
 		cin >> n >> m;
 		for(int r = 1; r <= n; r++) {
 			for(int c = 1; c <= m; c++) {
-				cin >> grid[r][c];  
+				cin >> grid[r][c];
 			}
 		}
 		dp[1][1][1] = 0;
@@ -37,7 +37,7 @@ int main() {
 			}
 			for(int c = 1; c < m; c++) {
 				for(int x = c+2; x <= m; x++) {
-					dp[r][c][x] = max(dp[r][c][x], dp[r][c][x-1] + grid[r][x]);  
+					dp[r][c][x] = max(dp[r][c][x], dp[r][c][x-1] + grid[r][x]);
 				}
 			}
 		}
