@@ -1,5 +1,5 @@
 /* Author: Ankit Sultana
- * Problem id: 1081
+ * Problem Name: Square Queries (1081)
  * * * * * * * * * */
 #include <stdio.h>
 #include <cstring>

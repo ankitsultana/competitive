@@ -1,5 +1,5 @@
 /* Author: Ankit Sultana
- * Problem id: 1129
+ * Problem Name: Consistency Checker (1129)
  * * * * * * * * * */
 #include <iostream>
 #define MAXN 10003
@@ -19,7 +19,7 @@ struct node {
 
 bool insert(int root, const string &word, int size, int idx = 0) {
 	if(trie[root].end) {
-		return false;  
+		return false;
 	} else if(idx == size) {
 		if(trie[root].pres)	return false;
 		trie[root].end = true;
@@ -53,7 +53,7 @@ int main() {
 		if(check) {
 			cout << "YES\n";
 		} else {
-			cout << "NO\n";  
+			cout << "NO\n";
 		}
 	}
 	return 0;

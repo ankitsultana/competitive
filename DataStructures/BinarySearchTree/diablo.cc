@@ -1,5 +1,5 @@
 /* Author: Ankit Sultana
- * DS: Treap
+ * Problem Name: Diablo (1087)
  * * * * * * * * * * * * */
 #include <stdio.h>
 #include <cstdlib>

@@ -1,5 +1,5 @@
 /* Author: Ankit Sultana
- * Problem id: 1224
+ * Problem Name: DNA Prefix (1224)
  * * * * * * * * * */
 #include <iostream>
 #define MAXN 50002

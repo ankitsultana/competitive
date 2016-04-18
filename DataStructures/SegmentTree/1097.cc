@@ -1,5 +1,5 @@
 /* Author: Ankit Sultana
- * ID: 1097
+ * Problem Name: Lucky Number (1097)
  * * * * * * * * * * */
 #ifdef __APPLE__
     #include <iostream>
