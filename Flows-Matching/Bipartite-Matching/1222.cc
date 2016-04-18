@@ -1,5 +1,5 @@
 /* Author: Ankit Sultana
- * Problem id: 1198
+ * Problem Name: Gift Packing (1222)
  * * * * * * * * * */
 #include <iostream>
 #include <cstring>
@@ -105,36 +105,25 @@ void Hungarian() {
 	// cout<<v[0]<<'\n'; // For Maximum.. For minim change to -ve
 }
 
-int a[MAXN], b[MAXN];
 /* Take edge weights negative for Max */
+
 int main()
 {
 	ios_base::sync_with_stdio(false);
 	int t;
-	cin >> t;
+	cin>>t;
 	REP1(tc,t) {
-		REP(i,MAXN) REP(j,MAXN) adj_m[i][j] = 0;
-		cin >> n;
-		REP1(i,n)
-			cin >> a[i];
-		REP1(i,n)
-			cin >> b[i];  
+		REP(i,MAXN)	REP(j,MAXN)	adj_m[i][j] = 0;
+		cin>>n;
 		REP1(i,n) {
 			REP1(j,n) {
-				if (a[i] > b[j]) {
-					adj_m[i][j + n] = -2;
-				}
-				else if (a[i] == b[j]) {
-					adj_m[i][j + n] = -1;  
-				}
-				else {
-					adj_m[i][j + n] = 0;
-				}
+				cin >> adj_m[i][j + n];
+				adj_m[i][j + n] = -adj_m[i][j + n];
 			}
 		}
 		n *= 2;
 		Hungarian();
-		cout << "Case " <<tc <<": " << v[0] << '\n';
+		cout<<"Case "<<tc<<": "<<v[0]<<'\n';
 	}
 	return 0;
 }

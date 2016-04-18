@@ -1,5 +1,5 @@
 /* Author: Ankit Sultana
- * Problem id: 1222
+ * Problem Name: Karate Competition (1198)
  * * * * * * * * * */
 #include <iostream>
 #include <cstring>
@@ -45,7 +45,7 @@ template<typename T> T expo(T b, T e, const T &m){if(e <= 1)return e == 0?1: b;\
 	return (e&1) == 0?expo((b*b)%m, e>>1, m): (b*expo((b*b)%m, e>>1, m))%m;}
 template<typename T> T modinv(T a) { return expo(a, mod-2, mod); }
 template<class T, class S> std::ostream& operator<<(std::ostream &os, const std::pair<T, S> &t) {
-	os<<"("<<t.first<<", "<<t.second<<")";  
+	os<<"("<<t.first<<", "<<t.second<<")";
 	return os;
 }
 template<class T> std::ostream& operator<<(std::ostream &os, const std::vector<T> &t) {
@@ -57,7 +57,7 @@ namespace variadic {
 	template<typename T, typename... Args> T min(T f, Args... args) {
 		return std::min(f, min(args...)); }
 	template<typename T> T max(T v) { return v; }
-	template<typename T, typename... Args> T max(T f, Args... args) { 
+	template<typename T, typename... Args> T max(T f, Args... args) {
 		return std::max(f, max(args...)); }
 }
 #define MAXN 202
@@ -77,7 +77,7 @@ void Hungarian() {
 		do {
 			used[j_cur] = true;
 			int j_next, delta = INF, i_cur = par[j_cur];
-			for (int j = 0; j <= n; j++) 
+			for (int j = 0; j <= n; j++)
 				if (!used[j]) {
 					int cur = adj_m[i_cur][j] - u[i_cur] - v[j];
 					if (cur < minval[j]) {
@@ -87,7 +87,7 @@ void Hungarian() {
 						delta = minval[j]; j_next = j;
 					}
 				}
-			for (int j = 0; j <= n; j++) 
+			for (int j = 0; j <= n; j++)
 				if (used[j]) {
 					u[par[j]] += delta; v[j] -= delta;
 				}
@@ -105,25 +105,36 @@ void Hungarian() {
 	// cout<<v[0]<<'\n'; // For Maximum.. For minim change to -ve
 }
 
+int a[MAXN], b[MAXN];
 /* Take edge weights negative for Max */
-
 int main()
 {
 	ios_base::sync_with_stdio(false);
 	int t;
-	cin>>t;
+	cin >> t;
 	REP1(tc,t) {
-		REP(i,MAXN)	REP(j,MAXN)	adj_m[i][j] = 0;
-		cin>>n;
+		REP(i,MAXN) REP(j,MAXN) adj_m[i][j] = 0;
+		cin >> n;
+		REP1(i,n)
+			cin >> a[i];
+		REP1(i,n)
+			cin >> b[i];
 		REP1(i,n) {
 			REP1(j,n) {
-				cin >> adj_m[i][j + n];
-				adj_m[i][j + n] = -adj_m[i][j + n];
+				if (a[i] > b[j]) {
+					adj_m[i][j + n] = -2;
+				}
+				else if (a[i] == b[j]) {
+					adj_m[i][j + n] = -1;
+				}
+				else {
+					adj_m[i][j + n] = 0;
+				}
 			}
 		}
 		n *= 2;
 		Hungarian();
-		cout<<"Case "<<tc<<": "<<v[0]<<'\n';
+		cout << "Case " <<tc <<": " << v[0] << '\n';
 	}
 	return 0;
 }
