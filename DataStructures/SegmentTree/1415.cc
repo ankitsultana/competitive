@@ -91,7 +91,9 @@ void setter(LL idx, LL dp_val, LL f_val, LL root = 1, LL l = 0, LL r = n) {
 
 int main() {
     int t;
-    // freopen("1", "rb", stdin);
+#ifdef local
+    freopen("1", "rb", stdin);
+#endif
     scanf("%d", &t);
     id.minim = id.min_dp = id.uska_f = 1ll<<60;
     for(int tc = 1; tc <= t; tc++) {
