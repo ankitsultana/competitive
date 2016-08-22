@@ -101,8 +101,7 @@ void solve() {
     for(int r = 1; r <= R; r++) {
         for(int c = 1; c <= C; c++) {
             if(flow[r][c + R] == 1) {
-                // Try blocking flow
-                flow[c + R][r] = 0;
+                flow[c + R][r] = 0; // lock edge
                 flow[sc][r]--, flow[c + R][sink]--;
                 flow[r][sc]++, flow[sink][c + R]++;
                 int a = augment();
@@ -116,7 +115,7 @@ void solve() {
                 }
             } else {
                 flow[r][c + R] += 1;
-                flow[c + R][r] -= 1;
+                flow[c + R][r] = 0; // lock edge
                 grid[r][c] = 0;
             }
         }
