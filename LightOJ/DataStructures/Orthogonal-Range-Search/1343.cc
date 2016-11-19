@@ -7,24 +7,6 @@ template <typename T> void in(T &x) {
 	for(;c > 47 && c < 58;c=gc())	x = (x*10) + (c - 48); if(neg)	x = -x;
 }
 
-#ifdef __APPLE__
-
-#include <mach/mach.h>
-int get_memory() {
-    struct task_basic_info t_info;
-    mach_msg_type_number_t t_info_count = TASK_BASIC_INFO_COUNT;
-
-    if (KERN_SUCCESS != task_info(mach_task_self(),
-                                  TASK_BASIC_INFO, (task_info_t)&t_info,
-                                  &t_info_count)) {
-        return -1;
-    }
-    cout << "Used memory: " << (t_info.resident_size/(1 << 20)) << endl;
-    return 0;
-}
-
-#endif
-
 const int MAXN = 503;
 unsigned int dp[MAXN][MAXN];
 unsigned int bit[MAXN][MAXN];
@@ -103,8 +85,5 @@ int main() {
         }
         printf("%u\n", res);
     }
-#ifdef __APPLE__
-    assert(get_memory() != -1);
-#endif
     return 0;
 }
